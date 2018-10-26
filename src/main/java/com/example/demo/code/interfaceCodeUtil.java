@@ -14,9 +14,9 @@ import java.util.*;
  */
 public class interfaceCodeUtil {
 
-    private static String createSign(String param1,String param2,String param3,String signkey){
+    private static String createSign(String param1, String param2, String param3, String signkey) {
         //创建一个保存参数K,V的map
-        Map<String, String> paramMap=new HashMap<String,String>();
+        Map<String, String> paramMap = new HashMap<String, String>();
         paramMap.put("akey1", param1);
         paramMap.put("ckey2", param2);
         paramMap.put("bkey3", param3);
@@ -106,6 +106,19 @@ public class interfaceCodeUtil {
             e.printStackTrace();
             return "ERROR";
         }
+    }
 
+    public static void main(String[] args) {
+        connect("111", "222", "333", "abcde");
+    }
+
+    public static void connect(String param1, String param2, String param3, String signkey) {
+        StringBuilder param = new StringBuilder();
+        param.append("akey1=" + param1 + "&");
+        param.append("bkey2=" + param2 + "&");
+        param.append("ckey3=" + param3 + "&");
+        String sn = createSign(param1, param2, param3, signkey);
+        param.append("sn=" + getMD5(sn.getBytes()) + "");
+        getResponse("http://test.com", param.toString());
     }
 }
