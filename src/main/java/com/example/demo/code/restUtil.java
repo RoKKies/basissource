@@ -40,7 +40,7 @@ public class restUtil {
         try {
             restUtil restUtil = new restUtil();
             String resultString = restUtil.load(
-                    "http://192.168.10.89:8080/eoffice-restful/resources/sys/oaholiday",
+                    "http://api.showji.com/Locating/www.showji.com.aspx?m=17611219308&output=json&callback=querycallback",
                     "floor=first&year=2017&month=9&isLeader=N");
         } catch (Exception e) {
             // TODO: handle exception
