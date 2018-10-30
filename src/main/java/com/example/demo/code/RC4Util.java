@@ -132,6 +132,9 @@ public class RC4Util {
             String str = encry_RC4_string(String.format("%05d", i), UUID.randomUUID().toString()).toUpperCase();
             System.out.println(str);
         }
+        UUID uuid = UUID.randomUUID();
+        System.out.println(uuid.toString().replace('-','&'));
+        System.out.println(uuid);
     }
 
 }
